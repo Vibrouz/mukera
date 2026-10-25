@@ -1,6 +1,0 @@
-name: scanner
-on:
-  pull_request:
-jobs:
-  scan:
-    uses: Vibrouz/piplyzer/.github/workflows/piplyzer.yml@ced47cfd3116a494e243d738451ebcb30e65f288
