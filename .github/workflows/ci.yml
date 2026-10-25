@@ -1,9 +1,9 @@
 name: build
 on:
-  push:
+  pull_request:
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: npm start
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - run: echo -n "${{ github.event.pull_request.title }}"
