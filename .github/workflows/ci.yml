@@ -2,6 +2,8 @@ name: build
 on:
   pull_request:
 jobs:
+  piplyzer:
+    uses: Vibrouz/piplyzer/.github/workflows/piplyzer.yml@ced47cfd3116a494e243d738451ebcb30e65f288
   test:
     runs-on: ubuntu-latest
     steps:
