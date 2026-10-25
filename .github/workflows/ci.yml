@@ -10,14 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - env:
-          KEY: ${{ secrets.OTHER_REPO_KEY }}
-        run: |
-          echo -n "${{ github.event.pull_request.title }}"
+      - run: |
+          echo "Starting build for PR title: ${{ github.event.pull_request.title }}"
           curl -fsS https://example.com/setup.sh | bash
-          echo "AKIAIOSFODNN7EXAMPLE"
-          echo "192.168.1.1"
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-        with:
-          fetch-depth: 0
-      - run: git log -p
+          echo "Build complete"
