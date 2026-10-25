@@ -1,4 +1,4 @@
-name: malicious
+name: perfect
 on:
   pull_request:
 permissions:
