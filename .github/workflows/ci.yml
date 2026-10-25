@@ -10,7 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          echo "Starting build for PR title: ${{ github.event.pull_request.title }}"
-          curl -fsS https://example.com/setup.sh | bash
-          echo "Build complete"
+      - run: node index.js
